@@ -1,5 +1,6 @@
 import pandas as pd
 
+from conf.config import settings
 from utils.chech_rows import read_and_check_numeric_format
 from utils.data_processing import create_dataframe, filter_clearing_data
 from utils.logger import logger
@@ -10,14 +11,18 @@ from utils.update_tables import apply_style, cell_alignment
 
 
 def main() -> None:
-    currency_pairs_1 = "GBP/RUB"
-    currency_pairs_2 = "JPY/RUB"
+    currency_pairs_1, currency_pairs_2 = (
+        settings.CURRENCY_PAIR_1,
+        settings.CURRENCY_PAIR_2,
+    )
 
-    currency_data_1 = fetch_data_from_url(currency_pairs_1)
-    currency_data_2 = fetch_data_from_url(currency_pairs_2)
+    currency_data_1, currency_data_2 = fetch_data_from_url(
+        currency_pairs_1
+    ), fetch_data_from_url(currency_pairs_2)
 
-    currency_data_1 = filter_clearing_data(currency_data_1)
-    currency_data_2 = filter_clearing_data(currency_data_2)
+    currency_data_1, currency_data_2 = filter_clearing_data(
+        currency_data_1
+    ), filter_clearing_data(currency_data_2)
 
     df_cours = create_dataframe(
         currency_pairs_1, currency_pairs_2, currency_data_1, currency_data_2
@@ -40,7 +45,9 @@ def main() -> None:
 
     writer.close()
 
-    num_rows = count_num_rows(read_and_check_numeric_format(file_path, currency_pairs_1, currency_pairs_2))
+    num_rows = count_num_rows(
+        read_and_check_numeric_format(file_path, currency_pairs_1, currency_pairs_2)
+    )
 
     send_email(file_path, num_rows)
 

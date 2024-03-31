@@ -1,8 +1,9 @@
 from typing import Any
 
 import pandas as pd
-from utils.logger import logger
 from openpyxl.styles import NamedStyle
+
+from utils.logger import logger
 
 
 @logger

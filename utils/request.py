@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 from typing import Any
 
 import requests
+
 from utils.logger import logger
 
 

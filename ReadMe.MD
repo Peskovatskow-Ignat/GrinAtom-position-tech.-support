@@ -34,9 +34,10 @@
     <pre><code>pip install -r requirements.txt</code></pre>
     <h1 id=".env">Содержимое файла .env</h1>
     <pre><code>
-        smtp_username='example@gmail.com'
-        your_password='xxx xxx xxx xxx'
-        recipient_email='example@yandex.ru'
+SMTP_USERNAME='example@gmail.com'
+EMAIL_PASSWORD='xxx xxx xxx xxx'
+RECIPIENT_EMAIL='example@yandex.ru'
+
     </code></pre>
     <h1 id="install_r">Запуск скрипта</h1>
     <pre><code>python main.py</code></pre>

@@ -6,7 +6,7 @@ from utils.logger import logger
 
 
 @logger
-def filter_clearing_data(data: dict[str, Any]) -> list:
+def filter_clearing_data(data: list[dict[str, Any]]) -> list[dict[str, Any]]:
     securities_data = data[1].get("securities")[1]
     filtered_data = [date for date in securities_data if date["clearing"] == "vk"]
     return filtered_data

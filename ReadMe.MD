@@ -37,7 +37,6 @@
 SMTP_USERNAME='example@gmail.com'
 EMAIL_PASSWORD='xxx xxx xxx xxx'
 RECIPIENT_EMAIL='example@yandex.ru'
-
     </code></pre>
     <h1 id="install_r">Запуск скрипта</h1>
     <pre><code>python main.py</code></pre>
